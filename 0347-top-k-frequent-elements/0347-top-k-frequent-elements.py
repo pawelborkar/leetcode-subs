@@ -1,7 +1,25 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        # Since we're given the range of k in the form of [1, no. of unique elements] then don't have to check for nullables of k 
+        if len(nums) == 1:
+            return nums
 
-        count = collections.Counter(nums)
+        freq = [[] for i in range(len(nums) + 1)]  
 
-        return heapq.nlargest(k, count.keys(), key=count.get)
+        # Count the elements
+        count = {}
+
+        for num in nums:
+            count[num] = 1 + count.get(num, 0)
+        
+        for n, c in count.items():
+            freq[c].append(n)
+
+        res = []        
+        for i in range(len(freq) -1, 0, -1):
+            if freq[i] is not None:
+                for n in freq[i]:
+                    res.append(n)
+                    if len(res) == k:
+                        return res
+
+
