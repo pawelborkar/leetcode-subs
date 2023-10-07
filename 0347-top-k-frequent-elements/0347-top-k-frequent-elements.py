@@ -16,10 +16,9 @@ class Solution:
 
         res = []        
         for i in range(len(freq) -1, 0, -1):
-            if freq[i] is not None:
-                for n in freq[i]:
-                    res.append(n)
-                    if len(res) == k:
-                        return res
+            for n in freq[i]:
+                res.append(n)
+                if len(res) == k:
+                    return res
 
 
