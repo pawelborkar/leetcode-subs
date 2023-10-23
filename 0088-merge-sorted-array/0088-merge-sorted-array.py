@@ -3,7 +3,6 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        # pointers
         j = m - 1
         k = n - 1
 
@@ -17,8 +16,3 @@ class Solution:
             else:
                 nums1[i] = nums2[k]
                 k -= 1
-            
-
-
-
-
