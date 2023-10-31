@@ -1,10 +1,11 @@
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
-        # Using Set
-        seen = set()
 
-        for num in nums:
-            if num in seen:
-                return num
+        for i, num in enumerate(nums):
             
-            seen.add(num)
+            # Check if it's duplicate
+            if nums[abs(num)] < 0:
+                return abs(num)
+            
+            nums[abs(num)] *= -1
+      
