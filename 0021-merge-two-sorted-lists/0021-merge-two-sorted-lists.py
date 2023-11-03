@@ -8,16 +8,19 @@ class Solution:
         if not list1 and not list2:
             return list1
 
-        dummy = node = ListNode()
+        dummy_node = node = ListNode()
 
         while list1 and list2:
-            if list1.val <= list2.val:
-                node.next = list1
-                list1 = list1.next
-            else:
+            if list1.val > list2.val:
                 node.next = list2
                 list2 = list2.next
-            node = node.next
+            else:
+                node.next = list1
+                list1 = list1.next
 
+            node = node.next
+        
         node.next = list1 or list2
-        return dummy.next
+
+        return dummy_node.next
+
