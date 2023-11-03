@@ -6,9 +6,7 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        
-        # using floyd's cyclec detection algorithm
-
+        # Floyd's algo
         slow = head
         fast = head
 
@@ -16,6 +14,6 @@ class Solution:
             slow = slow.next
             fast = fast.next.next
 
-            if fast == slow:
+            if slow == fast:
                 return True
         return False
